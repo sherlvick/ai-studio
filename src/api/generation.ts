@@ -15,7 +15,7 @@ export async function generateImage(
     const response = await apiClient.post<GenerationResult>('/generate', request, {
       signal,
       // Simulating API delay and random errors as per requirements
-      validateStatus: (status: number) => status === 200,
+      validateStatus: (status: number) => status >= 200 && status < 300,
     });
 
     // Simulate 20% error rate
